@@ -37,3 +37,33 @@ console.log(result);
 
 const secondResult = addTwoNumber(13240, 23240);
 console.log(secondResult);
+
+let number = 10;
+console.log(number);
+
+number = 50;
+console.log(number);
+
+// const number = 10;
+// console.log(number);
+// number = 50;
+// console.log(number);
+
+if (number === 50) {
+  console.log("Value if Fifty");
+} else {
+  console.log("Value is not Fifty");
+}
+
+// if() {
+
+// }else {
+
+// }
+
+// Ternary Opertor
+const isValueFifty = number === 50 ? true : false;
+
+// const ouput = condition ? '' : '';
+
+console.log(isValueFifty);
