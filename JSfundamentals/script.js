@@ -1,69 +1,33 @@
-const interestRate = "16%";
-console.log(interestRate);
+// Global Scope
+// Function Scope
+// Block Scope
 
-// number
-// String
+// ES6
+// const
+// let
 
-// Array
-// Object
-// Function
+// ES5
+// var
 
-const myCountry = "Nepal";
-console.log(myCountry);
+// Hoisting
 
-const age = 45;
+const firstName = "Alex";
 
-console.log(typeof age);
+function calcAge(birthYear) {
+  console.log(firstName);
+  // const age = 40;
+  // if (birthYear > 1980) {
+  //   const add = function (a, b) {
+  //     console.log(a + b);
+  //   };
 
-// const evenNumbers = [2, 4, 6, 8, ];
-const evenNumbers = new Array(2, 4, 6, 8, "Hello", [1, 2]);
-console.log(evenNumbers[3]);
-
-const bootcamp = {
-  duration: "3 months",
-  course: "React",
-};
-console.log(bootcamp.duration);
-
-const arrayBootcamp = ["3 months", "React"];
-console.log(arrayBootcamp[1]);
-
-function addTwoNumber(first, second) {
-  return first + second;
+  //   // function add(a, b) {
+  //   //   console.log(a + b);
+  //   // }
+  //   add(10, 20);
+  // }
+  const firstName = "David";
 }
 
-const result = addTwoNumber(10, 20);
-console.log(result);
-
-const secondResult = addTwoNumber(13240, 23240);
-console.log(secondResult);
-
-let number = 10;
-console.log(number);
-
-number = 50;
-console.log(number);
-
-// const number = 10;
-// console.log(number);
-// number = 50;
-// console.log(number);
-
-if (number === 50) {
-  console.log("Value if Fifty");
-} else {
-  console.log("Value is not Fifty");
-}
-
-// if() {
-
-// }else {
-
-// }
-
-// Ternary Opertor
-const isValueFifty = number === 50 ? true : false;
-
-// const ouput = condition ? '' : '';
-
-console.log(isValueFifty);
+calcAge(1990);
+console.log(firstName);
