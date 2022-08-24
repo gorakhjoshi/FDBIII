@@ -1,33 +1,26 @@
-// Global Scope
-// Function Scope
-// Block Scope
+let language = "Java";
+let oldlanguage = language;
+language = "JavaScript";
 
-// ES6
-// const
-// let
+console.log(language);
+console.log(oldlanguage);
 
-// ES5
-// var
+const development = {
+  frontend: "JavaScript",
+  backend: "Java",
+};
 
-// Hoisting
+const newDevelopment = development;
+console.log(newDevelopment);
 
-const firstName = "Alex";
+newDevelopment.backend = "Node.js";
 
-function calcAge(birthYear) {
-  console.log(firstName);
-  // const age = 40;
-  // if (birthYear > 1980) {
-  //   const add = function (a, b) {
-  //     console.log(a + b);
-  //   };
+console.log(newDevelopment);
 
-  //   // function add(a, b) {
-  //   //   console.log(a + b);
-  //   // }
-  //   add(10, 20);
-  // }
-  const firstName = "David";
-}
+console.log(development);
 
-calcAge(1990);
-console.log(firstName);
+// document.querySelector(".root").textContent = "New Hello";
+const heading = document.querySelector("h1");
+
+// console.dir(heading);
+heading.style.color = "red";
