@@ -1,26 +1,51 @@
-let language = "Java";
-let oldlanguage = language;
-language = "JavaScript";
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
 
-console.log(language);
-console.log(oldlanguage);
+// for (number of arr) {
+//   console.log(number);
+// }
 
-const development = {
-  frontend: "JavaScript",
-  backend: "Java",
-};
+// for (i in arr) {
+//   console.log(i);
+// }
 
-const newDevelopment = development;
-console.log(newDevelopment);
+// let index = 0;
 
-newDevelopment.backend = "Node.js";
+// while (index < 8) {
+//   console.log("Running!");
+//   index++;
+// }
 
-console.log(newDevelopment);
+// forEach, map, filter, reduce
 
-console.log(development);
+// function display(print) {
+//   // console.log(a);
+//   print(10);
+// }
 
-// document.querySelector(".root").textContent = "New Hello";
-const heading = document.querySelector("h1");
+// function displayNumber(number) {
+//   console.log(number);
+// }
 
-// console.dir(heading);
-heading.style.color = "red";
+// display(displayNumber);
+
+// function displayNumber(number) {
+//   console.log(number);
+// }
+
+// displayNumber(10);
+const arr = [11, 12, 13, 14, 15, 16, 17, 18, 20];
+
+// console.log(arr);
+
+arr.forEach((item, index, array) => console.log(item));
+
+// function add(a, b) {
+//   console.log("Running");
+//   return "hello";
+// }
+
+// const result = add(10, 20);
+
+// console.log(result);
