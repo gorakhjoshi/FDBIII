@@ -51,7 +51,6 @@
 // console.log(result);
 
 const obj = {
-  name: "Gorakh",
   age: 30,
   favNumber: [1, 2, 3, 4],
   calcAge: function () {
@@ -63,20 +62,56 @@ const obj = {
     hourTwo: 2100,
     allHours: [1800, 1900, 2100],
   },
+  name: "Gorakh",
 };
 
-const hourOne = obj.freeHours.hourOne;
-console.log(hourOne);
+// const hourOne = obj.freeHours.hourOne;
+// console.log(hourOne);
 
 const availableHour = obj.freeHours.allHours[0];
 console.log(availableHour);
 
-const arr = [1, 2, 3];
-// const thirdElement = arr[2];
-// console.log(thirdElement);
+const {
+  age: myAge,
+  favNumber,
+  freeHours: {
+    hourOne,
+    allHours: [, firstNumber],
+  },
+} = obj;
+console.log(myAge);
+console.log(favNumber);
+console.log(firstNumber);
 
-// const fourthElement = arr[3];
-// console.log(fourthElement);
+const arr = [1, 2, 3, 40, [1, 2]];
 
-const [, , thirdElement = 0] = arr;
-console.log(thirdElement);
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// const d = arr[3];
+// const e = arr[4];
+
+// const [a, b, c, d, e] = arr;
+
+// console.log(a, b, c, d, e);
+
+const allElement = [...arr];
+// const numbers = 1,2,3,4
+
+const arrOne = [1, 2, 3, 4];
+const arrTwo = [5, 6, 7, 8];
+
+// const arrThree = [1, 2, 3, 4, 5, 6, 7, 8];
+
+const arrThree = arrOne.concat(arrTwo);
+console.log(arrThree);
+console.log([...arrOne, ...arrTwo]);
+
+const [...two] = arrOne;
+console.log(...two);
+
+function displayArray(...a) {
+  console.log(...a);
+}
+
+displayArray(1, 2, 3, [1, 2], "hello");
