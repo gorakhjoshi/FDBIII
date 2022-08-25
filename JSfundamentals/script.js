@@ -35,11 +35,11 @@
 // }
 
 // displayNumber(10);
-const arr = [11, 12, 13, 14, 15, 16, 17, 18, 20];
+// const arr = [11, 12, 13, 14, 15, 16, 17, 18, 20];
 
 // console.log(arr);
 
-arr.forEach((item, index, array) => console.log(item));
+// arr.forEach((item, index, array) => console.log(item));
 
 // function add(a, b) {
 //   console.log("Running");
@@ -49,3 +49,34 @@ arr.forEach((item, index, array) => console.log(item));
 // const result = add(10, 20);
 
 // console.log(result);
+
+const obj = {
+  name: "Gorakh",
+  age: 30,
+  favNumber: [1, 2, 3, 4],
+  calcAge: function () {
+    console.log("Running calcAge function!");
+    return "Your age";
+  },
+  freeHours: {
+    hourOne: "six-seven",
+    hourTwo: 2100,
+    allHours: [1800, 1900, 2100],
+  },
+};
+
+const hourOne = obj.freeHours.hourOne;
+console.log(hourOne);
+
+const availableHour = obj.freeHours.allHours[0];
+console.log(availableHour);
+
+const arr = [1, 2, 3];
+// const thirdElement = arr[2];
+// console.log(thirdElement);
+
+// const fourthElement = arr[3];
+// console.log(fourthElement);
+
+const [, , thirdElement = 0] = arr;
+console.log(thirdElement);
