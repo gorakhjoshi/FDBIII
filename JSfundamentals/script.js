@@ -1,51 +1,27 @@
-const arr = [10, 20, 30, 40];
-console.log(arr);
+"use strict";
 
-const foreachOutput = arr.forEach((el, i, array) => {
-  // console.log(i);
-  console.log(el);
-  // console.log(array);
-  // return el * 1.5;
-});
-console.log(foreachOutput);
+// this keyword
+console.log(this);
 
-const mapOutput = arr.map((el, i, array) => {
-  // console.log(i);
-  // console.log(el);
-  // console.log(array);
-  return el * 1.5;
-});
-console.log(mapOutput);
+const obj = {
+  name: "Alex",
+  age: 31,
+  calcAge: function () {
+    console.log(this);
+  },
+};
 
-const filterOutput = arr.filter((el, i, array) => {
-  // console.log(i);
-  // console.log(el);
-  // console.log(array);
-  return el > 20;
-});
-console.log(filterOutput);
+obj.calcAge();
 
-const reduceOutput = arr.reduce((acc, currentValue) => {
-  console.log(acc);
-  // console.log(currentValue);
+function add() {
+  console.log(this);
+  if (true) {
+    console.log(this);
+  }
+}
 
-  return acc + currentValue;
-}, 10);
-console.log(reduceOutput);
+add();
 
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.sort();
-
-const fruitsNumbers = [14, 5, 6, 3];
-fruits.sort();
-console.log(fruitsNumbers);
-
-const points = [40, 100, 1, 5, 25, 10];
-points.sort(function (a, b) {
-  return b - a;
-});
-console.log(points);
-
-const array1 = [5, 17, 8, 130, 44];
-const found = array1.find((element) => element > 10);
-console.log(found);
+if (true) {
+  console.log(this);
+}
