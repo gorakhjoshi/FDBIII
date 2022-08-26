@@ -1,117 +1,51 @@
-// for (let i = 0; i < arr.length; i++) {
-//   console.log(arr[i]);
-// }
+const arr = [10, 20, 30, 40];
+console.log(arr);
 
-// for (number of arr) {
-//   console.log(number);
-// }
+const foreachOutput = arr.forEach((el, i, array) => {
+  // console.log(i);
+  console.log(el);
+  // console.log(array);
+  // return el * 1.5;
+});
+console.log(foreachOutput);
 
-// for (i in arr) {
-//   console.log(i);
-// }
+const mapOutput = arr.map((el, i, array) => {
+  // console.log(i);
+  // console.log(el);
+  // console.log(array);
+  return el * 1.5;
+});
+console.log(mapOutput);
 
-// let index = 0;
+const filterOutput = arr.filter((el, i, array) => {
+  // console.log(i);
+  // console.log(el);
+  // console.log(array);
+  return el > 20;
+});
+console.log(filterOutput);
 
-// while (index < 8) {
-//   console.log("Running!");
-//   index++;
-// }
+const reduceOutput = arr.reduce((acc, currentValue) => {
+  console.log(acc);
+  // console.log(currentValue);
 
-// forEach, map, filter, reduce
+  return acc + currentValue;
+}, 10);
+console.log(reduceOutput);
 
-// function display(print) {
-//   // console.log(a);
-//   print(10);
-// }
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();
 
-// function displayNumber(number) {
-//   console.log(number);
-// }
+const fruitsNumbers = [14, 5, 6, 3];
+fruits.sort();
+console.log(fruitsNumbers);
 
-// display(displayNumber);
+const points = [40, 100, 1, 5, 25, 10];
+points.sort(function (a, b) {
+  return b - a;
+});
+console.log(points);
 
-// function displayNumber(number) {
-//   console.log(number);
-// }
-
-// displayNumber(10);
-// const arr = [11, 12, 13, 14, 15, 16, 17, 18, 20];
-
-// console.log(arr);
-
-// arr.forEach((item, index, array) => console.log(item));
-
-// function add(a, b) {
-//   console.log("Running");
-//   return "hello";
-// }
-
-// const result = add(10, 20);
-
-// console.log(result);
-
-const obj = {
-  age: 30,
-  favNumber: [1, 2, 3, 4],
-  calcAge: function () {
-    console.log("Running calcAge function!");
-    return "Your age";
-  },
-  freeHours: {
-    hourOne: "six-seven",
-    hourTwo: 2100,
-    allHours: [1800, 1900, 2100],
-  },
-  name: "Gorakh",
-};
-
-// const hourOne = obj.freeHours.hourOne;
-// console.log(hourOne);
-
-const availableHour = obj.freeHours.allHours[0];
-console.log(availableHour);
-
-const {
-  age: myAge,
-  favNumber,
-  freeHours: {
-    hourOne,
-    allHours: [, firstNumber],
-  },
-} = obj;
-console.log(myAge);
-console.log(favNumber);
-console.log(firstNumber);
-
-const arr = [1, 2, 3, 40, [1, 2]];
-
-// const a = arr[0];
-// const b = arr[1];
-// const c = arr[2];
-// const d = arr[3];
-// const e = arr[4];
-
-// const [a, b, c, d, e] = arr;
-
-// console.log(a, b, c, d, e);
-
-const allElement = [...arr];
-// const numbers = 1,2,3,4
-
-const arrOne = [1, 2, 3, 4];
-const arrTwo = [5, 6, 7, 8];
-
-// const arrThree = [1, 2, 3, 4, 5, 6, 7, 8];
-
-const arrThree = arrOne.concat(arrTwo);
-console.log(arrThree);
-console.log([...arrOne, ...arrTwo]);
-
-const [...two] = arrOne;
-console.log(...two);
-
-function displayArray(...a) {
-  console.log(...a);
-}
-
-displayArray(1, 2, 3, [1, 2], "hello");
+const array1 = [5, 17, 8, 130, 44];
+const found = array1.find((element) => element > 10);
+console.log(found);
