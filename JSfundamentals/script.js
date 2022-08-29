@@ -1,39 +1,36 @@
 "use strict";
-
-const obj = {
-  name: "Alex",
-  age: 31,
-  calcAge: function () {
-    console.log(this);
-  },
-  favNumbers: {
-    firstNumber: 1,
-    secondNumber: 2,
-  },
+// Constructor Function
+const Person = function (firstName) {
+  this.first = firstName;
+  this.calcAge = function (birthYear) {
+    return 2022 - birthYear;
+  };
 };
 
-console.log(obj.favNumbers?.firstNumber);
+const alexObj = new Person("Alex");
+console.log(alexObj);
+// Person.prototype.calcAge = function (birthYear) {
+//   return 2022 - birthYear;
+// };
+// console.log(Person.prototype);
 
-// ??
-// 0, false, null, undefined, NaN, ''
+console.log(alexObj.calcAge(1990));
 
-// const totalNumber = false;
+const arr = [1, 2, 3];
+console.log(arr);
 
-// // Short Circuiting Operator
-// const totalProduct = totalNumber && 20;
+const newObj = new Person("Prashant");
+// console.log(newObj);
 
-// console.log(totalProduct);
+// console.log(Person);
 
-// if (totalProduct) {
-//   console.log("You have total products");
-// } else {
-//   console.log("You don't have total number");
-// }
+const newObject = {
+  a: 1,
+};
 
-console.log("0" && "false" && "NaN" && "Hello");
+console.log(newObject);
 
-obj.totalNumber = 0;
+console.dir(document);
 
-const number = obj.totalNumber ?? 100;
-
-console.log(number);
+console.log(new Set());
+console.log(new Map());
