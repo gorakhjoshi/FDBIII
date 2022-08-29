@@ -1,48 +1,21 @@
 "use strict";
-// ES6 Classes
 
-class Person {
-  constructor(firstName, birthYear) {
-    this.first = firstName;
-    this.birthDate = birthYear;
-  }
-  calcAge() {
-    return 2022 - this.birthDate;
-  }
+// Synchronous
+// Asynchronous
+console.log("Running Before Function");
 
-  add(a, b) {
-    return a + b;
-  }
+async function add() {
+  await fetch("http://localhost:5500");
+  console.log("Running Inside Function First");
+  console.log("Running Inside Function Second");
 }
 
-const objAlex = new Person("Alex", 1990);
+console.log("Running After Function");
 
-console.log(objAlex.calcAge());
+add();
 
-const myCountry = "Nepal";
-console.log(myCountry.toUpperCase());
+console.log("Running After Function Call");
 
-class Animal {
-  constructor(legs, wings) {
-    this.legs = legs;
-    this.wings = wings;
-  }
-  walk() {
-    console.log("walking on " + this.legs + " legs");
-  }
+for (let i = 0; i < 100000; i++) {
+  console.log("Running");
 }
-
-class Bird extends Animal {
-  constructor(legs) {
-    super(legs);
-  }
-  fly() {
-    console.log("flying");
-  }
-}
-
-let bird = new Bird(2);
-console.log(bird);
-
-bird.walk();
-bird.fly();
