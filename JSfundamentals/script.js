@@ -1,36 +1,48 @@
 "use strict";
-// Constructor Function
-const Person = function (firstName) {
-  this.first = firstName;
-  this.calcAge = function (birthYear) {
-    return 2022 - birthYear;
-  };
-};
+// ES6 Classes
 
-const alexObj = new Person("Alex");
-console.log(alexObj);
-// Person.prototype.calcAge = function (birthYear) {
-//   return 2022 - birthYear;
-// };
-// console.log(Person.prototype);
+class Person {
+  constructor(firstName, birthYear) {
+    this.first = firstName;
+    this.birthDate = birthYear;
+  }
+  calcAge() {
+    return 2022 - this.birthDate;
+  }
 
-console.log(alexObj.calcAge(1990));
+  add(a, b) {
+    return a + b;
+  }
+}
 
-const arr = [1, 2, 3];
-console.log(arr);
+const objAlex = new Person("Alex", 1990);
 
-const newObj = new Person("Prashant");
-// console.log(newObj);
+console.log(objAlex.calcAge());
 
-// console.log(Person);
+const myCountry = "Nepal";
+console.log(myCountry.toUpperCase());
 
-const newObject = {
-  a: 1,
-};
+class Animal {
+  constructor(legs, wings) {
+    this.legs = legs;
+    this.wings = wings;
+  }
+  walk() {
+    console.log("walking on " + this.legs + " legs");
+  }
+}
 
-console.log(newObject);
+class Bird extends Animal {
+  constructor(legs) {
+    super(legs);
+  }
+  fly() {
+    console.log("flying");
+  }
+}
 
-console.dir(document);
+let bird = new Bird(2);
+console.log(bird);
 
-console.log(new Set());
-console.log(new Map());
+bird.walk();
+bird.fly();
