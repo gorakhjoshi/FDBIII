@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Profile</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="main-title">Github Profile Finder</h1>
+      <small>Search anyone on GitHub</small>
+      <div class="input-container">
+        <input type="text" id="search-username" placeholder="Search Username" />
+        <button class="search-usernameBtn" id="search-usernameBtn">
+          Search
+        </button>
+      </div>
+
+      <section class="intro" id="intro">
+        <!-- Added through Javascript -->
+        <!-- DUMMY -->
+        <div class="user-info" id="user-info">
+          <figure>
+            <img
+              alt="user avatar"
+              src="https://avatars.githubusercontent.com/u/59221046?v=4"
+            />
+          </figure>
+          <div>
+            <h2>
+              <a href="#"><strong>Gorakh Raj Joshi</strong></a
+              >&nbsp;<strong class="username">gorakhjoshi</strong>
+            </h2>
+
+            <p>This is my bio.</p>
+            <p><strong class="blue">Location: </strong>My Location</p>
+            <p>
+              <strong class="blue">Repos: </strong>100
+              <strong class="blue">Followers: </strong>200
+              <strong class="blue">Following: </strong>300
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="repos hide">
+        <input
+          type="text"
+          class="filter-repos hide"
+          placeholder="Search Repositories"
+        />
+        <ul class="repo-list"></ul>
+      </section> -->
+
+      <!-- DUMMY -->
+      <section class="repos">
+        <input
+          type="text"
+          class="filter-repos"
+          placeholder="Search Repositories"
+        />
+        <ul class="repo-list">
+          <li class="repo">
+            <h3>FDBIII</h3>
+            <span>null</span> <br /><br />
+            <span><i class="devicon-html5-plain colored"></i> HTML</span> <br />
+            <br />
+            <a href="https://github.com/gorakhjoshi/FDBIII">View Project</a>
+          </li>
+        </ul>
+      </section>
+
+      <div id="loading"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

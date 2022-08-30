@@ -1,29 +1,12 @@
 "use strict";
 
-const numberSet = new Set([1, 2, 3, 1, 2, 3]);
+const restaurant = new Map();
 
-console.log(numberSet);
+restaurant.set("open", 10).set("close", 22);
+console.log(restaurant);
 
-console.log(numberSet.has(3));
+console.log(restaurant.get("close"));
 
-console.log(numberSet.add(4));
+console.log(restaurant.has("open"));
 
-console.log(numberSet.delete(2));
-
-console.log(numberSet);
-
-numberSet.clear();
-
-console.log(numberSet);
-
-// numberSet.map
-
-const mainMenu = new Set(["Pizza", "Momo", "Pasta", "Pizza", "Rice"]);
-
-console.log(mainMenu.size);
-
-for (const menuItem of mainMenu) {
-  console.log(menuItem);
-}
-
-console.log([...mainMenu]);
+console.log(...restaurant);
