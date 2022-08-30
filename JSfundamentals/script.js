@@ -1,21 +1,29 @@
 "use strict";
 
-// Synchronous
-// Asynchronous
-console.log("Running Before Function");
+const numberSet = new Set([1, 2, 3, 1, 2, 3]);
 
-async function add() {
-  await fetch("http://localhost:5500");
-  console.log("Running Inside Function First");
-  console.log("Running Inside Function Second");
+console.log(numberSet);
+
+console.log(numberSet.has(3));
+
+console.log(numberSet.add(4));
+
+console.log(numberSet.delete(2));
+
+console.log(numberSet);
+
+numberSet.clear();
+
+console.log(numberSet);
+
+// numberSet.map
+
+const mainMenu = new Set(["Pizza", "Momo", "Pasta", "Pizza", "Rice"]);
+
+console.log(mainMenu.size);
+
+for (const menuItem of mainMenu) {
+  console.log(menuItem);
 }
 
-console.log("Running After Function");
-
-add();
-
-console.log("Running After Function Call");
-
-for (let i = 0; i < 100000; i++) {
-  console.log("Running");
-}
+console.log([...mainMenu]);
