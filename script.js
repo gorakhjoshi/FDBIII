@@ -1,33 +1,26 @@
 "use strict";
 
-const url = "https://api.github.com/users/gorakhjoshi";
+const url = "https://api.github.com/users/";
+const usernameInput = "gorakhjoshi";
 
-// const response = fetch(url);
+const fetchProfile = async () => {
+  try {
+    const res = await fetch(`${url}${usernameInput}`);
+    const data = await res.json();
+  } catch (error) {
+    console.log("Error occured!");
+  }
+};
+fetchProfile();
 
-// response.then(function () {
-//   console.log("Your promise is fulfilled");
-// });
-
-// response.catch(function () {
-//   console.log("Error");
-// });
-
-console.log("Start");
-const response = fetch(url)
-  .then((res) => {
-    console.log("First Then");
-    return res.json();
-  })
-  .then((data) => {
-    console.log("Second Then");
+const fetchRepos = async () => {
+  try {
+    const res = await fetch(`${url}${usernameInput}/repos`);
+    const data = await res.json();
     console.log(data);
-  })
-  .catch((e) => console.log(e));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-console.log(response);
-
-console.log("End");
-
-// for (let i = 0; i < 100000; i++) {
-//   console.log("Running");
-// }
+fetchRepos();
