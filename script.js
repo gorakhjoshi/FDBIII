@@ -1,6 +1,7 @@
 "use strict";
 const inputBox = document.querySelector("#search-username");
 const searchUsernameBtn = document.querySelector("#search-usernameBtn");
+console.dir(searchUsernameBtn);
 const userInfo = document.querySelector("#intro");
 const loading = document.querySelector("#loading");
 const reposSection = document.querySelector(".repos");
@@ -8,9 +9,9 @@ const repoList = document.querySelector(".repo-list");
 const filterInput = document.querySelector(".filter-repos");
 
 const url = "https://api.github.com/users/";
-const usernameInput = "gorakhjoshi";
 
 const displayProfile = (profile) => {
+  console.log(profile);
   return `<div class="user-info" id="user-info">
           <figure>
             <img
@@ -21,9 +22,8 @@ const displayProfile = (profile) => {
           <div>
             <h2>
               <a href=${profile.html_url}><strong>${profile.name}</strong></a
-              >&nbsp;<strong class="username">${profile.username}</strong>
+              >&nbsp;<strong class="username">@${profile.login}</strong>
             </h2>
-
             <p>${profile.bio}</p>
             <p><strong class="blue">Location: </strong>${profile.location}</p>
             <p>
@@ -37,7 +37,7 @@ const displayProfile = (profile) => {
 };
 
 const fetchProfile = async () => {
-  // console.log(inputBox.value);
+  const usernameInput = inputBox.value;
   loading.innerText = "Loading...";
   try {
     const res = await fetch(`${url}${usernameInput}`);
@@ -55,19 +55,19 @@ const fetchProfile = async () => {
     loading.innerText = "";
   }
 };
-fetchProfile();
 
 const fetchRepos = async () => {
+  const usernameInput = inputBox.value;
   try {
     const res = await fetch(`${url}${usernameInput}/repos`);
     const data = await res.json();
     displayRepos(data);
+    // loading.innerText = "";
   } catch (error) {
     console.log(error);
+    loading.innerText = "";
   }
 };
-
-fetchRepos();
 
 const displayRepos = (repos) => {
   reposSection.classList.remove("hide");
@@ -75,6 +75,7 @@ const displayRepos = (repos) => {
   console.log(repos);
   for (const repo of repos) {
     const listItem = document.createElement("li");
+    listItem.classList.add("repo");
     listItem.innerHTML = `
     <h3>${repo.name}</h3>
     <br />
@@ -83,10 +84,30 @@ const displayRepos = (repos) => {
     <br />
     <a href = ${repo.html_url} > View Repo </>
     `;
-    // console.log(listItem);
     repoList.append(listItem);
   }
 };
+
+searchUsernameBtn.addEventListener("click", (e) => {
+  fetchProfile();
+  fetchRepos();
+  inputBox.value = "";
+});
+
+filterInput.addEventListener("input", (e) => {
+  const search = e.target.value.toLowerCase();
+  const repos = document.querySelectorAll(".repo");
+
+  for (const repo of repos) {
+    const repoText = repo.innerText.toLowerCase();
+
+    if (repoText.includes(search)) {
+      repo.classList.remove("hide");
+    } else {
+      repo.classList.add("hide");
+    }
+  }
+});
 
 // for programming language icons
 const devicons = {
