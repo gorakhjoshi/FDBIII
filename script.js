@@ -8,7 +8,7 @@ const repoList = document.querySelector(".repo-list");
 const filterInput = document.querySelector(".filter-repos");
 
 const url = "https://api.github.com/users/";
-const usernameInput = "alex";
+const usernameInput = "gorakhjoshi";
 
 const displayProfile = (profile) => {
   return `<div class="user-info" id="user-info">
@@ -37,14 +37,22 @@ const displayProfile = (profile) => {
 };
 
 const fetchProfile = async () => {
+  // console.log(inputBox.value);
+  loading.innerText = "Loading...";
   try {
     const res = await fetch(`${url}${usernameInput}`);
     const data = await res.json();
-    console.log(data);
-
-    userInfo.innerHTML = displayProfile(data);
+    if (data.bio) {
+      console.log(data);
+      userInfo.innerHTML = displayProfile(data);
+    } else {
+      userInfo.innerText = "";
+      reposSection.innerText = "";
+      loading.innerHTML = `<h3 style = "color: red">Username Not Found!</h1>`;
+    }
   } catch (error) {
     console.log("Error occured!");
+    loading.innerText = "";
   }
 };
 fetchProfile();
@@ -53,12 +61,32 @@ const fetchRepos = async () => {
   try {
     const res = await fetch(`${url}${usernameInput}/repos`);
     const data = await res.json();
+    displayRepos(data);
   } catch (error) {
     console.log(error);
   }
 };
 
 fetchRepos();
+
+const displayRepos = (repos) => {
+  reposSection.classList.remove("hide");
+  filterInput.classList.remove("hide");
+  console.log(repos);
+  for (const repo of repos) {
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `
+    <h3>${repo.name}</h3>
+    <br />
+    <div>${devicons[repo.language]}</div>
+    <br />
+    <br />
+    <a href = ${repo.html_url} > View Repo </>
+    `;
+    // console.log(listItem);
+    repoList.append(listItem);
+  }
+};
 
 // for programming language icons
 const devicons = {
