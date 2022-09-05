@@ -28,3 +28,16 @@ else {
     console.log("Weak password");
 }
 const map = new Map();
+class Queue {
+    data = [];
+    push(item) {
+        this.data.push(item);
+    }
+    pop() {
+        return this.data.shift();
+    }
+}
+const firstObj = new Queue();
+firstObj.push(30);
+firstObj.push('30');
+console.log(firstObj);

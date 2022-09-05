@@ -37,4 +37,23 @@ if (myPassword.match(passCheck)) {
   console.log("Weak password");
 }
 
-const map = new Map<string, number>()
+const map = new Map<string, number>();
+
+class Queue<T> {
+  data: Array<T> = [];
+
+  push(item: T) {
+    this.data.push(item);
+  }
+
+  pop(): T | undefined {
+    return this.data.shift();
+  }
+}
+
+const firstObj = new Queue();
+
+firstObj.push(30);
+firstObj.push('30');
+
+console.log(firstObj);
