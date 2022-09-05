@@ -39,5 +39,16 @@ class Queue {
 }
 const firstObj = new Queue();
 firstObj.push(30);
-firstObj.push('30');
+firstObj.push("30");
 console.log(firstObj);
+const obj = {
+    firstName: "Alex",
+    age: 30,
+};
+// obj.lastName = "Mohr";
+console.log(obj);
+const hisObject = {
+    firstName: "Laxman",
+    age: 25,
+};
+const myAge = 30;

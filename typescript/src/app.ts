@@ -54,6 +54,29 @@ class Queue<T> {
 const firstObj = new Queue();
 
 firstObj.push(30);
-firstObj.push('30');
+firstObj.push("30");
 
 console.log(firstObj);
+
+// type Person = { firstName: string; age: number; lastName?: string };
+interface Person {
+  firstName: string;
+  age: number;
+  lastName?: string;
+}
+
+const obj: Person = {
+  firstName: "Alex",
+  age: 30,
+};
+
+// obj.lastName = "Mohr";
+console.log(obj);
+
+const hisObject: { firstName: string; age: number; lastName?: string } = {
+  firstName: "Laxman",
+  age: 25,
+};
+
+type Age = number
+const myAge: Age = 30
