@@ -16,3 +16,25 @@ console.log(Symbol("unique") === Symbol("unique"));
 // console.log(bigNUmber)
 
 let bigNUmber = 20n;
+
+let set = new Set<string>(["hello"]);
+console.log(set);
+
+// let arr = [1, 2, 3, 4];
+// let arr = new Array<number>(1, 2, 3, 4);
+let arr: number[] = new Array(1, 2, 3, 4);
+
+let regexp = new RegExp("hello");
+
+const passCheck =
+  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+const myPassword = "Kathmandu1@";
+
+if (myPassword.match(passCheck)) {
+  console.log("Strong Password!");
+} else {
+  console.log("Weak password");
+}
+
+const map = new Map<string, number>()

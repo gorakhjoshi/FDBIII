@@ -13,3 +13,18 @@ console.log(Symbol("unique") === Symbol("unique"));
 // let bigNUmber = BigInt("23123123131312312312312331312");
 // console.log(bigNUmber)
 let bigNUmber = 20n;
+let set = new Set(["hello"]);
+console.log(set);
+// let arr = [1, 2, 3, 4];
+// let arr = new Array<number>(1, 2, 3, 4);
+let arr = new Array(1, 2, 3, 4);
+let regexp = new RegExp("hello");
+const passCheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+const myPassword = "Kathmandu1@";
+if (myPassword.match(passCheck)) {
+    console.log("Strong Password!");
+}
+else {
+    console.log("Weak password");
+}
+const map = new Map();
