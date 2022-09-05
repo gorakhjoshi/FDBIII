@@ -78,5 +78,18 @@ const hisObject: { firstName: string; age: number; lastName?: string } = {
   age: 25,
 };
 
-type Age = number
-const myAge: Age = 30
+type Age = number;
+const myAge: Age = 30;
+
+// const numbers = [1, 2];
+// numbers.push(3);
+
+// console.log(numbers)
+
+let numbers: [number, number] = [1, 2];
+
+// numbers = [10, 20];
+
+numbers.push(30);
+
+console.log(numbers);

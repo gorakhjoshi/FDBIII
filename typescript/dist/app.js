@@ -52,3 +52,10 @@ const hisObject = {
     age: 25,
 };
 const myAge = 30;
+// const numbers = [1, 2];
+// numbers.push(3);
+// console.log(numbers)
+let numbers = [1, 2];
+// numbers = [10, 20];
+numbers.push(30);
+console.log(numbers);
