@@ -1,62 +1,30 @@
 "use strict";
-// 1. Primitive Types
-const isAvailable = true;
-// let isAvailableLet = 20;
-let age = 30;
-let hello = "world";
-let notDefined = undefined;
-let notPresent = null;
-notPresent = 30;
-// notPresent = '30';
-// notPresent = ['30'];
-console.log(Symbol("unique") === Symbol("unique"));
-// let bigNUmber = BigInt("23123123131312312312312331312");
-// console.log(bigNUmber)
-let bigNUmber = 20n;
-let set = new Set(["hello"]);
-console.log(set);
-// let arr = [1, 2, 3, 4];
-// let arr = new Array<number>(1, 2, 3, 4);
-let arr = new Array(1, 2, 3, 4);
-let regexp = new RegExp("hello");
-const passCheck = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-const myPassword = "Kathmandu1@";
-if (myPassword.match(passCheck)) {
-    console.log("Strong Password!");
-}
-else {
-    console.log("Weak password");
-}
-const map = new Map();
-class Queue {
-    data = [];
-    push(item) {
-        this.data.push(item);
-    }
-    pop() {
-        return this.data.shift();
-    }
-}
-const firstObj = new Queue();
-firstObj.push(30);
-firstObj.push("30");
-console.log(firstObj);
-const obj = {
-    firstName: "Alex",
-    age: 30,
-};
-// obj.lastName = "Mohr";
-console.log(obj);
-const hisObject = {
-    firstName: "Laxman",
-    age: 25,
-};
-const myAge = 30;
-// const numbers = [1, 2];
-// numbers.push(3);
-// console.log(numbers)
-// Tuple
-let numbers = [1, 2];
-numbers = [10, 40];
-// numbers.push(30);
-console.log(numbers);
+let exampleAny;
+exampleAny = 30;
+console.log(typeof exampleAny);
+exampleAny = "hello";
+exampleAny = [1, 2, 3];
+console.log(exampleAny);
+let exampleUnknown;
+exampleUnknown = 30;
+console.log(typeof exampleUnknown);
+exampleUnknown = "30";
+console.log(typeof exampleUnknown);
+exampleUnknown = ["30"];
+console.log(typeof exampleUnknown);
+let numbers;
+numbers = 40;
+numbers = 50.1678;
+// numbers = "15.879";
+// console.log(numbers.toFixed(1));
+// numbers.i.wish.to.us.this();
+// any -> unknown
+// if (typeof numbers === "number") {
+//   console.log("I am a number");
+//   console.log(numbers.toFixed(1));
+// }
+// if (typeof numbers === "string") {
+//   console.log("I am a string");
+// }
+typeof numbers === "number" && console.log(numbers.toFixed(1));
+console.log(typeof numbers === "number");

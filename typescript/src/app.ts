@@ -1,96 +1,40 @@
-// 1. Primitive Types
-const isAvailable: boolean = true;
-// let isAvailableLet = 20;
-let age = 30;
-let hello = "world";
+let exampleAny;
 
-let notDefined = undefined;
-let notPresent: number | null = null;
-notPresent = 30;
-// notPresent = '30';
-// notPresent = ['30'];
+exampleAny = 30;
+console.log(typeof exampleAny);
+exampleAny = "hello";
+exampleAny = [1, 2, 3];
 
-console.log(Symbol("unique") === Symbol("unique"));
+console.log(exampleAny);
 
-// let bigNUmber = BigInt("23123123131312312312312331312");
-// console.log(bigNUmber)
+let exampleUnknown: unknown;
+exampleUnknown = 30;
+console.log(typeof exampleUnknown);
+exampleUnknown = "30";
+console.log(typeof exampleUnknown);
+exampleUnknown = ["30"];
+console.log(typeof exampleUnknown);
 
-let bigNUmber = 20n;
+let numbers: unknown;
+numbers = 40;
+numbers = 50.1678;
+// numbers = "15.879";
 
-let set = new Set<string>(["hello"]);
-console.log(set);
+// console.log(numbers.toFixed(1));
 
-// let arr = [1, 2, 3, 4];
-// let arr = new Array<number>(1, 2, 3, 4);
-let arr: number[] = new Array(1, 2, 3, 4);
+// numbers.i.wish.to.us.this();
 
-let regexp = new RegExp("hello");
+// any -> unknown
 
-const passCheck =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+// if (typeof numbers === "number") {
+//   console.log("I am a number");
+//   console.log(numbers.toFixed(1));
+// }
 
-const myPassword = "Kathmandu1@";
+// if (typeof numbers === "string") {
+//   console.log("I am a string");
+// }
 
-if (myPassword.match(passCheck)) {
-  console.log("Strong Password!");
-} else {
-  console.log("Weak password");
-}
+typeof numbers === "number" && console.log(numbers.toFixed(1));
 
-const map = new Map<string, number>();
-
-class Queue<T> {
-  data: Array<T> = [];
-
-  push(item: T) {
-    this.data.push(item);
-  }
-
-  pop(): T | undefined {
-    return this.data.shift();
-  }
-}
-
-const firstObj = new Queue();
-
-firstObj.push(30);
-firstObj.push("30");
-
-console.log(firstObj);
-
-// type Person = { firstName: string; age: number; lastName?: string };
-interface Person {
-  firstName: string;
-  age: number;
-  lastName?: string;
-}
-
-const obj: Person = {
-  firstName: "Alex",
-  age: 30,
-};
-
-// obj.lastName = "Mohr";
-console.log(obj);
-
-const hisObject: { firstName: string; age: number; lastName?: string } = {
-  firstName: "Laxman",
-  age: 25,
-};
-
-type Age = number;
-const myAge: Age = 30;
-
-// const numbers = [1, 2];
-// numbers.push(3);
-
-// console.log(numbers)
-
-// Tuple
-let numbers: readonly[number, number] = [1, 2];
-
-numbers = [10, 40];
-
-// numbers.push(30);
-
-console.log(numbers);
+console.log(typeof numbers === "number")
