@@ -86,10 +86,11 @@ const myAge: Age = 30;
 
 // console.log(numbers)
 
-let numbers: [number, number] = [1, 2];
+// Tuple
+let numbers: readonly[number, number] = [1, 2];
 
-// numbers = [10, 20];
+numbers = [10, 40];
 
-numbers.push(30);
+// numbers.push(30);
 
 console.log(numbers);

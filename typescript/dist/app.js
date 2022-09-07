@@ -55,7 +55,8 @@ const myAge = 30;
 // const numbers = [1, 2];
 // numbers.push(3);
 // console.log(numbers)
+// Tuple
 let numbers = [1, 2];
-// numbers = [10, 20];
-numbers.push(30);
+numbers = [10, 40];
+// numbers.push(30);
 console.log(numbers);
