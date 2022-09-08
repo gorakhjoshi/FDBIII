@@ -20,12 +20,16 @@
 // console.log(React);
 
 const rootElement = document.getElementById("root");
-const element = React.createElement("div", {
-  className: "container",
-  children: [
-    React.createElement("span", null, "Hello"),
-    React.createElement("span", null, "Hello"),
-  ],
-});
+// const element = React.createElement("div", {
+//   className: "container",
+//   children: [
+//     React.createElement("span", null, "Hello"),
+//     React.createElement("span", null, "Hello"),
+//   ],
+// });
 
+// ReactDOM.render(element, rootElement);
+
+// JSX
+const element = <div className="container">Hello World</div>;
 ReactDOM.render(element, rootElement);
