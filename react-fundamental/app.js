@@ -1,35 +1,25 @@
-"use strict";
-// // Creating sourceElement(div) element
-// const sourceElement = document.createElement("div");
-// sourceElement.id = "root";
+function Message({ children, myClass }) {
+  console.log(children);
+  return (
+    // React Fragment
+    <>
+      <div className={myClass || "Your Class"}>Rendering</div>
+      <header>{children}</header>
+      <br />
+    </>
+  );
+}
 
-// // Targeting destination
-// const destination = document.body;
+// Function -> Component
+// Call Function -> Render Component
 
-// // Sending sourceElement(div) to destination
-// destination.append(sourceElement);
+const element = (
+  <div className="container">
+    <Message myClass="mycontainer">
+      <div>Hello World</div>
+    </Message>
+    <Message children="Goodbye World" />
+  </div>
+);
 
-// // Creating another div
-// const divElement = document.createElement("div");
-// divElement.textContent = "Hello World";
-// divElement.className = "container";
-
-// // Sending divElement to sourceElement
-// sourceElement.append(divElement);
-
-// console.log(React);
-
-const rootElement = document.getElementById("root");
-// const element = React.createElement("div", {
-//   className: "container",
-//   children: [
-//     React.createElement("span", null, "Hello"),
-//     React.createElement("span", null, "Hello"),
-//   ],
-// });
-
-// ReactDOM.render(element, rootElement);
-
-// JSX
-const element = <div className="container">Hello World</div>;
-ReactDOM.render(element, rootElement);
+ReactDOM.render(element, document.getElementById("root"));
