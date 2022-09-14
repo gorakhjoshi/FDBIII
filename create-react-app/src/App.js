@@ -1,40 +1,22 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function App() {
-  const [person, setPerson] = useState({ firstName: "Laxman", age: 30 });
-  const [count, setCount] = useState(0);
+  const [user, setUser] = useState(null);
+  console.log("Running App Component before useEffect Hook");
 
-  console.log("Running App!");
-  console.log(person);
+  console.log(user);
+  console.log("User", user?.title);
 
-  function ageHandler() {
-    // function (prev) {
-    //   return { ...prev, age: 40 };
-    // }
-    console.log("Setting state of Person");
-    setPerson((prev) => ({ ...prev, age: prev.age + 1 }));
-    console.log("Now re-rendering if state changed!");
-  }
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
+      .then((response) => response.json())
+      .then((json) => setUser(json));
+    console.log("Inside useEffect Hook!");
+  }, []);
 
-  function countHandler() {
-    console.log("Setting count");
-    setCount(() => count + 1);
-    console.log("Now re-rendering if state changed!");
-  }
-
-  return (
-    <div>
-      {person.firstName}
-      <br />
-      {person.age}
-      <br />
-      <button onClick={ageHandler}>Increase Age</button>
-      <br />
-      {count}
-      <br />
-      <button onClick={countHandler}>Increase Count</button>
-    </div>
-  );
+  console.log("After useEffect Hook");
+  // return <div>{user ? user.title : <h1>LOADING...</h1>}</div>;
+  return <div>{user?.title || <h1>Loading...</h1>}</div>;
 }
 
 export default App;
