@@ -2,21 +2,35 @@
 
 import * as React from "react";
 
-function countReducer(count, change) {
+function countReducer(state, action) {
   console.log("Running countReducer Function!");
-  console.log("value of state", count);
-  console.log("value of newState", change);
-  return count + change;
+  console.log("value of state", state);
+  console.log("value of newState", action);
+
+  return { ...state, ...action };
 }
 
-function Counter({ initialCount = 0, step = 1 }) {
-  const [count, setCount] = React.useReducer(countReducer, initialCount);
+function Counter({ initialValue = 0, step = 1, totalCount = 100 }) {
+  const [state, setState] = React.useReducer(countReducer, {
+    count: initialValue,
+    total: totalCount,
+  });
+
+  console.log(state);
+
+  const { count, total } = state;
+
   console.log("Counter is Running");
   console.log("Current Value of count", count);
 
-  const increment = () => setCount(step);
+  const increment = () => setState({ count: count + step });
 
-  return <button onClick={increment}>{count}</button>;
+  return (
+    <>
+      <button onClick={increment}>{count}</button>
+      <div>{total}</div>
+    </>
+  );
 }
 
 function App() {
