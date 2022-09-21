@@ -2,19 +2,19 @@
 
 import * as React from "react";
 
-function countReducer(state, newState) {
+function countReducer(count, change) {
   console.log("Running countReducer Function!");
-  console.log("value of state", state);
-  console.log("value of newState", newState);
-  return newState;
+  console.log("value of state", count);
+  console.log("value of newState", change);
+  return count + change;
 }
 
-function Counter({ initialCount = 0 }) {
+function Counter({ initialCount = 0, step = 1 }) {
   const [count, setCount] = React.useReducer(countReducer, initialCount);
   console.log("Counter is Running");
   console.log("Current Value of count", count);
 
-  const increment = () => setCount(count + 1);
+  const increment = () => setCount(step);
 
   return <button onClick={increment}>{count}</button>;
 }
