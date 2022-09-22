@@ -1,34 +1,30 @@
 // useReducer: simple Counter
 
-import * as React from "react";
+import { useReducer } from "react";
+import { countReducer } from "./reducer/reducer";
 
-function countReducer(state, action) {
-  console.log("Running countReducer Function!");
-  console.log("value of state", state);
-  console.log("value of newState", action);
+const initialValue = {
+  count: 0,
+  total: 100,
+};
 
-  return { ...state, ...action };
-}
-
-function Counter({ initialValue = 0, step = 1, totalCount = 100 }) {
-  const [state, setState] = React.useReducer(countReducer, {
-    count: initialValue,
-    total: totalCount,
-  });
-
-  console.log(state);
+function Counter({ step = 1 }) {
+  const [state, dispatch] = useReducer(countReducer, initialValue);
 
   const { count, total } = state;
-
-  console.log("Counter is Running");
-  console.log("Current Value of count", count);
-
-  const increment = () => setState({ count: count + step });
+  const increment = () => dispatch({ type: "increment", step });
+  const decrement = () => dispatch({ type: "decrement", step });
+  const neutral = () => dispatch();
 
   return (
     <>
-      <button onClick={increment}>{count}</button>
-      <div>{total}</div>
+      <h3>Count: {count}</h3>
+      <h3>Total Count: {total}</h3>
+      <button onClick={increment}>Increment</button>
+      <br />
+      <button onClick={decrement}>Decrement</button>
+      <br />
+      <button onClick={neutral}>Do Nothing</button>
     </>
   );
 }
