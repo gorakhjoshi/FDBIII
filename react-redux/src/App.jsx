@@ -1,7 +1,7 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Counter from "./components/Counter";
+import Auth from "./components/Auth";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Counter />
+      <Auth />
     </div>
   );
 }
