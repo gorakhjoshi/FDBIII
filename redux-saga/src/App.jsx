@@ -1,34 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import "./App.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getCatsFetch } from "./store/catState";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const cats = useSelector((state) => state.cats);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {}, [dispatch]);
+
+  console.log(cats);
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>CAT's Gallery</h1>
+      <p>All about cats</p>
+      <hr />
+      {cats.length > 0 ? (
+        cats.map((cat) => (
+          <div key={cat.id} className="row">
+            <div>
+              {cat.image && (
+                <img
+                  src={cat.image.url}
+                  alt={cat.name}
+                  width="200"
+                  height="200"
+                />
+              )}
+            </div>
+            <div className="column-right">
+              <h2>{cat.name}</h2>
+              <h2>{cat.temperament}</h2>
+              <h2>{cat.description}</h2>
+            </div>
+          </div>
+        ))
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
