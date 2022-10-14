@@ -34,7 +34,7 @@ test("Posting Oreos are delicious", () => {
   expect(emptyThought).toBeNull();
 });
 
-test("Should display posted thought", () => {
+test("Should display posted thought", async () => {
   render(<App />);
 
   const input = screen.getByRole("input");
@@ -43,7 +43,10 @@ test("Should display posted thought", () => {
   userEvent.type(input, "Oreos are delicious");
   userEvent.click(addButton);
 
-  const header = screen.getByText("Oreos are delicious");
+  const header = await screen.findByText("Oreos are delicious");
+  // Bug
+
+  screen.debug();
 
   expect(header).toBeInTheDocument();
 });
