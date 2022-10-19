@@ -1,18 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 export default function App() {
   const [num, setNum] = useState(0);
   const [light, setLight] = useState(true);
-  const plusFive = () => {
+
+  // useCallback(() => , [])
+
+  // Optimized
+  const plusFive = useCallback(() => {
     console.log("plusFive was called!");
     return num + 5;
-  };
+  }, [num]);
+
+  // useMemo(() => result, [])
+  // useCallback(() => {}, []);
+
+  // Not Optimized
+  // const plusFive = () => {
+  //   console.log("plusFive was called!");
+  //   return num + 5;
+  // };
+
   return (
     <div className={light ? "light" : "dark"}>
       <div>
         <h1>Without useCallback </h1>
         <h2>
-          Current number: {num},
+          Current number: {num},{/* TODO */}
+          {/* Remember SomeComp: memo */}
           <SomeComp someFunc={plusFive} />
         </h2>
         <div className="button-container">
@@ -38,6 +53,7 @@ export default function App() {
 }
 
 const SomeComp = ({ someFunc }) => {
+  console.log("SomeComp is Running");
   const [calcNum, setCalcNum] = useState(0);
   useEffect(() => {
     setCalcNum(someFunc());
