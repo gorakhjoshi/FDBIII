@@ -16,9 +16,10 @@ import axios from "axios";
 // Using axios
 async function getCatsData() {
   try {
-    const response = await axios("https://api.thecatapi.com/v1/breeds");
+    const response = await axios("https://icanhazdadjoke.com/", {
+      headers: { Accept: "Application/json" },
+    });
     console.log(response);
-    console.log(response.data);
   } catch (error) {
     console.log(error.message);
   }
