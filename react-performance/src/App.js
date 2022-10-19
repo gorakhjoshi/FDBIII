@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 const plusFive = (num) => {
-  console.log("i was called!");
+  console.log(num);
+  console.log("plusFive function was called!");
   return num + 5;
 };
 
 export default function App() {
   const [num, setNum] = useState(0);
   const [light, setLight] = useState(true);
-  const numPlusFive = plusFive(num);
+
+  // useMemo(() => , [])
+  // Not Optimized
+  // const numPlusFive = plusFive(num);
+
+  // Optimized
+  const numPlusFive = useMemo(() => plusFive(num), [num]);
+
   return (
     <div className={light ? "light" : "dark"}>
       <div>
