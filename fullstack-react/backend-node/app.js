@@ -1,15 +1,15 @@
+// ES module
+// import express from "express";
+
+// commonjs modules
 const express = require("express");
+
 const app = express();
-const port = 3001;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get("/v1/breeds", (req, res) => {
+  res.send("Hello");
 });
 
-app.get("/api", (req, res) => {
-  res.send("You will get api here");
-});
+const port = 4000;
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+app.listen(port, console.log(`Server is listening in port ${port}`));
