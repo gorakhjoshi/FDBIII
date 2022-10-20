@@ -1,27 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const url = "https://course-api.com/axios-turotial-post";
-
-async function apiFetch() {
-  const email = "example@gmail.com";
-  const password = "example";
-  try {
-    const response = await axios.post(url, {
-      email,
-      password,
-    });
-    console.log(response);
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
 function App() {
+  const [countryName, setCountryName] = useState("");
+  console.log(countryName);
+
   useEffect(() => {
-    apiFetch();
+    async function fetchTasks() {
+      try {
+        const { data } = await axios("/api/v1/country");
+        console.log(data);
+        setCountryName(data.names);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchTasks();
   }, []);
-  return <div>App</div>;
+  return (
+    <h1>
+      {/* {countryName?.map((country, index) => (
+        <h1 key={index}>{country}</h1>
+      ))} */}
+    </h1>
+  );
 }
 
 export default App;

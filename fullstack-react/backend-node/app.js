@@ -3,6 +3,9 @@ const express = require("express");
 
 const app = express();
 
+// PROCESS ENV
+console.log(process.env);
+
 // router.route("/").get((req, res) => {
 //   res.send("Hello From Main Route");
 // });
@@ -19,6 +22,10 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/tasks", (req, res) => {
   res.json({ response: "Welcome to task api" });
+});
+
+app.use("/api/v1/country", (req, res) => {
+  res.json({ names: ["Nepal", "USA", "India"] });
 });
 
 const port = 4000;
