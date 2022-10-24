@@ -1,32 +1,11 @@
 const express = require("express");
-// const router = express.Router();
+const tasks = require("./routes/tasks");
 
 const app = express();
 
-// PROCESS ENV
-console.log(process.env);
+app.use(express.json());
 
-// router.route("/").get((req, res) => {
-//   res.send("Hello From Main Route");
-// });
-
-// app.use(express.json());
-
-app.get("/hello", (req, res) => {
-  res.send("Hello From /hello route");
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello From Main Route");
-});
-
-app.use("/api/v1/tasks", (req, res) => {
-  res.json({ response: "Welcome to task api" });
-});
-
-app.use("/api/v1/country", (req, res) => {
-  res.json({ names: ["Nepal", "USA", "India"] });
-});
+app.use("/api/v1/tasks", tasks);
 
 const port = 4000;
 
