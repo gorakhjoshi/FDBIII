@@ -1,29 +1,35 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [countryName, setCountryName] = useState("");
-  console.log(countryName);
+  const [name, setName] = useState("");
+  const [created, setCreated] = useState("");
 
-  useEffect(() => {
-    async function fetchTasks() {
-      try {
-        const { data } = await axios("/api/v1/country");
-        console.log(data);
-        setCountryName(data.names);
-      } catch (error) {
-        console.log(error);
-      }
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/v1/tasks", { name });
+      console.log(response);
+      setCreated(response.data.name);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    fetchTasks();
-  }, []);
   return (
-    <h1>
-      {/* {countryName?.map((country, index) => (
-        <h1 key={index}>{country}</h1>
-      ))} */}
-    </h1>
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={name}
+          placeholder="Name"
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <button type="submit">Create</button>
+      </form>
+      {created && <div>You created {created}</div>}
+    </>
   );
 }
 
