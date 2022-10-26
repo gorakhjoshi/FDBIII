@@ -1,16 +1,17 @@
 const Task = require("../models/Tasks");
 
-const getAllTasks = (req, res) => {
-  res.json([
-    { name: "Make react CRUD app", date: "2022-10-22", id: 123 },
-    { name: "Make react CRUD app", date: "2022-10-22", id: 123 },
-    { name: "Make react CRUD app", date: "2022-10-22", id: 123 },
-  ]);
+const getAllTasks = async (req, res) => {
+  const tasks = await Task.find({});
+  res.status(200).json({ tasks });
 };
 
 const createTasks = async (req, res) => {
-  const task = await Task.create(req.body);
-  res.status(201).json(task);
+  try {
+    const task = await Task.create(req.body);
+    res.status(201).json(task);
+  } catch (error) {
+    res.status(500).json({ msg: "Name must be less tha 20 chatacters" });
+  }
 };
 
 const getTask = (req, res) => {
