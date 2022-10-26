@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  },
+  "scripts": {
+    "start": "concurrently \"cd frontend-react && yarn start\" \"cd backend-node && yarn start\""
+  }
+}
